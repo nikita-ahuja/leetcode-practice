@@ -5,21 +5,15 @@
 var pivotIndex = function(nums) {
 
     for (let i = 0; i < nums.length; i++) {
-        console.log("ITERATION NUMBER", i);
-        console.log("i is ", i);
+
         let sumLeft = 0;
-        console.log("sumLeft = ",sumLeft)
         for (let j = i - 1; j > -1; j--) {
-            console.log("j is ", j);
             sumLeft += nums[j]
-            console.log("sumLeft = ",sumLeft)
         }
 
         let sumRight = 0;
         for (let k = i + 1; k < nums.length; k++) {
-            console.log("k is", k)
             sumRight += nums[k]
-            console.log("sumRight = ", sumRight)
         }
 
         if (sumLeft === sumRight) {
@@ -28,4 +22,31 @@ var pivotIndex = function(nums) {
     }
 
     return - 1
+};
+
+
+var pivotIndex = function(nums) {
+
+  for (let potentialPivot = 0; potentialPivot < nums.length; potentialPivot++) {
+
+    //left side
+    let sumOfLeftHalf = 0; //sum the left half of the array, starting at the index and traversing left
+    for (let leftHalfIdx = potentialPivot-1; leftHalfIdx >= -1; leftHalfIdx--) {
+      sumOfLeftHalf += nums[leftHalfIdx]
+    }
+
+    //right side
+    let sumOfRightHalf = 0;
+    for (let rightHalfIdx = potentialPivot+1; rightHalfIdx <= nums.length; rightHalfIdx++) {
+      sumofRightHalf += nums[rightHalfIdx]
+    }
+
+    if (sumOfRightHalf == sumOfLeftHalf) {
+      return potentialPivot;
+    }
+
+  }
+
+  return false
+
 };
