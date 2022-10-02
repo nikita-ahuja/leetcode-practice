@@ -7,7 +7,7 @@
 var isIsomorphic = function(s, t) {
 
   //implement checks
-  if (s.length) {
+  if (s.length !== t.length) {
     return false
   }
 
@@ -26,7 +26,7 @@ var isIsomorphic = function(s, t) {
     if (tMap[tCharacter] == undefined) {
       tMap[tCharacter] = sCharacter;
 
-    if (sMap[sCharacter] !== tCharacter || tMap[tCharacter] !== sCharacter) {
+    if (sMap[sCharacter] != tCharacter || tMap[tCharacter] != sCharacter){
       return false;
     }
   }
@@ -35,4 +35,4 @@ var isIsomorphic = function(s, t) {
   }
 };
 
-isIsomorphic("egg", "add");
+console.log(isIsomorphic("egg", "add"));
